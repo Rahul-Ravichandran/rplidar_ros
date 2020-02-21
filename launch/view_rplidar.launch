@@ -4,7 +4,9 @@
   It requires rplidar.launch.
  -->
 <launch>
-  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" ns="LiDAR1"/> />
+  <include file="$(find rplidar_ros)/launch/rplidar2.launch" ns="LiDAR2"/> />
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz" />
-</launch>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz $(find rplidar_ros)/rviz/rplidar2.rviz"/>
+  </launch>
